@@ -8,13 +8,13 @@ def upload_bitstream(bitstream, freq=10_000_000):
 
     # Setup
     clock   = machine.Pin(0, machine.Pin.OUT)
-    reset_n = machine.Pin(1, machine.Pin.OUT)
+    reset_n = machine.Pin(1, machine.Pin.OPEN_DRAIN)
 
     # SPI
     fpga_miso = machine.Pin(4, machine.Pin.IN)
     fpga_cs_n = machine.Pin(5, machine.Pin.OUT)
-    fpga_sclk = machine.Pin(6, machine.Pin.OUT)
-    fpga_mosi = machine.Pin(7, machine.Pin.OUT)
+    fpga_sclk = machine.Pin(6, machine.Pin.OPEN_DRAIN)
+    fpga_mosi = machine.Pin(7, machine.Pin.OPEN_DRAIN)
 
     fpga_spi = machine.SPI(
         mosi=fpga_mosi,
